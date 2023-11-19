@@ -1,3 +1,54 @@
+.resolucion{
+  width: 99%;
+
+}
+/*MOVIL*/
+@media (max-width:767px){
+  .desktop{display: none;}
+
+  .tablet{display: none;}
+
+ 
+
+}
+/*TABLET*/
+@media (min-width:768px)and (max-width:990px){
+  .desktop{display: none;}
+
+  
+
+  .android{display: none;}
+
+}
+
+
+/*ESCRITORIO*/
+@media (min-width:991px){
+
+
+  .tablet{display: none;}
+
+  .android{display: none;}
+
+}
+
+
+.close-button {
+  /* Estilos para el botón de cerrar */
+  top: 580px;
+  left: 115px;
+  background-color: #495879;
+  color: #fff;
+ position: absolute;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+  
+
+
+
 .espacio{
   display: flex;
   gap: 50px;
@@ -32,7 +83,7 @@
   background-color: #617cb6;
   }
 #searchInput {
-  padding: 5px;
+  padding: 2%;
   font-size: 16px;
 }
 #searchButton {
@@ -84,7 +135,7 @@ header {
 @media (max-width: 1000px) {
   .pokedex {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 80px;
+      gap: 10px;
   }
 }
 
@@ -151,11 +202,12 @@ header {
   }
 
   .team-grid {
+    padding: 30px;
   display: flex;
   grid-template-columns: 1fr; 
   gap:2%;
   border-width: 2px;
-  margin-bottom: 0%;
+  
   background-repeat: space;
   
 

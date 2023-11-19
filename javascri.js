@@ -180,7 +180,6 @@ async function habilidades(pokemon, pokemonInfo) {
     return flavorTextEntry ? flavorTextEntry.flavor_text : "Descripción no disponible";
 }
         const abDesc = await Promise.all(abilityPromises);
-        console.log(abDesc)
         const abilities =abDesc.filter(ability => !ability.is_hidden);
         const hiddenability= abDesc.filter(ability=> ability.is_hidden);
         const caja = document.createElement('div');
@@ -273,6 +272,8 @@ async function displayPokemonInfo(pokemon) {
         <img  src="${pokemon.sprites.front_default}" alt="${pokemon.name} image">
         <div class="stats-container">${stats}</div>
         `;
+
+        
        const type = Elementos(pokemon)
        pokemonInfo.appendChild(type);
        const elegir=botoneq(pokemon)
@@ -280,6 +281,20 @@ async function displayPokemonInfo(pokemon) {
        flex.classList.add("unhidden")
     flex.appendChild(pokemonInfo);
 }
+document.addEventListener('click', function (event) {
+  const flexContainer = document.getElementById('flex-container');
+  const isClickInsideFlex = flexContainer.contains(event.target);
+  const flex = document.querySelector("#flex-container");
+  if (isClickInsideFlex && !flex.classList.contains("unhidden")) {
+      // Si el clic ocurrió dentro del flexbox y el flexbox no está abierto, ábrelo
+      flex.classList.add("unhidden");
+  }
+  // Agrega un botón de cierre dentro del flexbox con un ID "closeButton"
+  const closeButton = document.getElementById('closeButton');
+  if (closeButton && event.target === closeButton) {
+      flex.classList.remove("unhidden");
+  }
+});
 //Mostrar los tipos del pokemon en imagenes
 const Elementos = (pokemon) => {
   const types= pokemon.types.map(type => {return "<img class='tamanio' src= 'TYPES/"+type.type.name+".png'/>"} ).join(', ');
@@ -305,8 +320,6 @@ function addToTeam(pokemon) {
   if (team.length < maxTeamSize) {
     team.push(pokemon);
     displayTeam();
-  } else {
-    alert('El equipo está completo. Debes liberar un Pokémon antes de agregar otro.');
   }
 }
 
@@ -347,8 +360,8 @@ function displayTeam() {
       teamGrid.appendChild(teamMember);
         console.log(pokemon.name,index)
       console.log(document.querySelector(`#${pokemon.name}-${index}`));
-      document.querySelector(`#${pokemon.name}-${index}`).addEventListener('dblclick', () => removeFromTeam(index));
-      document.querySelector(`#${pokemon.name}-${index}`).addEventListener('click', () => displayPokemonInfo(pokemon));
+      document.querySelector(`#${pokemon.name}-${index}`).addEventListener('click', () => removeFromTeam(index));
+      document.querySelector(`#${pokemon.name}-${index}`).addEventListener('mouseenter', () => displayPokemonInfo(pokemon));
     });
     if (team.length <6) {
       

@@ -11,6 +11,15 @@
 
 </head>
 <body>
+    <div class="resolucion">
+        <div class="desktop"></div>
+        <div class="android"></div>
+        <div class="tablet"></div>
+
+
+
+    </div>
+
     <header>        <h1 style="cursor: default;">Team Maker</h1>
     <div class="search-bar"> <form action="../../form-result.php" method="post" target="_blank">
     <p><input type="search" id="searchInput" placeholder="Buscar Pokémon..." size="20" maxlength="17" class="inputsearch"></p>
@@ -61,7 +70,9 @@
   <option value="legendary">Legendarios</option>
   <option value="megas">Megaevoluciones</option>
 </select>
-    <div style="cursor: default;" id="flex-container" class="hidden"></div>
+    <div style="cursor: default;" id="flex-container" class="hidden">
+        <button id="closeButton" class="close-button">X</button>
+    </div>
     <div id="team-container" class="team-container">
         <div class="team-grid">
             <img id="pokeball-0" src="TYPES/bola.png" alt="pokeball">

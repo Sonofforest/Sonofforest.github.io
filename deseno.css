@@ -1,36 +1,4 @@
-.resolucion{
-  width: 99%;
 
-}
-/*MOVIL*/
-@media (max-width:767px){
-  .desktop{display: none;}
-
-  .tablet{display: none;}
-
- 
-
-}
-/*TABLET*/
-@media (min-width:768px)and (max-width:990px){
-  .desktop{display: none;}
-
-  
-
-  .android{display: none;}
-
-}
-
-
-/*ESCRITORIO*/
-@media (min-width:991px){
-
-
-  .tablet{display: none;}
-
-  .android{display: none;}
-
-}
 
 
 .close-button {
@@ -44,10 +12,6 @@
   cursor: pointer;
   border-radius: 20px;
 }
-
-  
-
-
 
 .espacio{
   display: flex;
@@ -73,6 +37,7 @@
   right: 575px; 
 }
 #flex-container{
+  z-index: 99;
   position:fixed;
   display: flex;
   flex-direction: column;
@@ -202,12 +167,13 @@ header {
   }
 
   .team-grid {
+    z-index: 88;
     padding: 30px;
   display: flex;
   grid-template-columns: 1fr; 
   gap:2%;
   border-width: 2px;
-  
+  background-color: #32549e;
   background-repeat: space;
   
 
